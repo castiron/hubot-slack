@@ -91,8 +91,8 @@ class Slack extends Adapter
 
   getMessageFromRequest: (req) ->
     # Parse the payload
-    hubotMsg = req.param 'text'
-    room = req.param 'channel_name'
+    hubotMsg = req.body.text
+    room = req.body.channel_name
     mode = @options.mode
     channels = @options.channels
 
@@ -100,10 +100,10 @@ class Slack extends Adapter
 
   getAuthorFromRequest: (req) ->
     # Return an author object
-    id       : req.param 'user_id'
-    name     : req.param 'user_name'
-    reply_to : req.param 'channel_id'
-    room     : req.param 'channel_name'
+    id       : req.body.user_id
+    name     : req.body.user_name
+    reply_to : req.body.channel_id
+    room     : req.body.channel_name
 
 
   ###################################################################
